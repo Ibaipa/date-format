@@ -756,9 +756,9 @@ details[open] summary { margin-bottom: 8px; }
 .ci-airing .tk { font-size: inherit; margin: 0; }
 body[data-render="figma"] .ci-airing .tk { color: var(--acol, #fff) !important; padding: 0 !important; }
 body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !important; margin-left: -3px !important; }
-/* En modo Tokens, ocultar el badge externo "Próximamente/Em breve/Demnächst" en Airing Extended · Detail Page (no forma parte del string; en Figma sí se ve). Se identifica por el icono de reloj, que solo lleva ese badge. */
-body[data-render="tokens"] td.col-detail.set-est .tk-badge:has(.ph-clock) { display: none; }
-body[data-render="tokens"] .ci-cases-dp .ci-airing .ci-badge:has(.ph-clock) { display: none; }
+/* Ocultar el badge externo "Próximamente/Em breve/Demnächst" en Airing Extended (Detail Page y Serie grupo) y en las cards de Detail Page — en todos los idiomas y modos. Se identifica por el icono de reloj (U7D usa otro icono, no se afecta). */
+.set-est .tk-badge:has(.ph-clock) { display: none; }
+.ci-cases-dp .ci-airing .ci-badge:has(.ph-clock) { display: none; }
 /* Timeline en directo bajo el airing (Detail Page · Directo de la tabla) */
 .dp-timeline { display:flex; align-items:center; gap:8px; margin-top:7px; font-size:11px; color:var(--text-sec); font-variant-numeric:tabular-nums; }
 .dp-timeline .tl-bar { flex:1; min-width:70px; height:4px; background:var(--border-strong); border-radius:999px; overflow:hidden; }
