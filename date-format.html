@@ -1806,8 +1806,11 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
       let dstr=date;if(k==='de'&&(kind==='past'||gr)&&dstr!=null)dstr=capF(dstr);
       const seq=(dstr!=null?TKd(dstr):'')+(time!=null?(TKc(',')+' '+TKt(time)):'');
       if(gr){
-        if(kind==='past')return (k==='de')?(seq+' '+TKp('aufgenommen')):(TKp(GPAST[k])+' '+seq);
-        return (k==='de')?(seq+' '+TKp('geplant')):(TKp(GFUT[k])+' '+seq);
+        if(kind==='past')return TKp(GPAST[k])+' '+seq;
+        // Futuro grabación (default inline): el día va tras el verbo → minúscula (es/pt)
+        const lcd=(date!=null?date.charAt(0).toLowerCase()+date.slice(1):null);
+        const seqF=(lcd!=null?TKd(lcd):'')+(time!=null?(TKc(',')+' '+TKt(time)):'');
+        return TKp(GFUT[k])+' '+seqF;
       }
       if(kind==='past')return badge+((k==='de')?(seq+' '+TKp('gesendet')):(TKp(PREF[k])+' '+seq));
       return badge+seq;}
@@ -1816,14 +1819,21 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
       document.querySelectorAll('.locale-panel').forEach(p=>{const k=lk(p.dataset.locale);
         p.querySelectorAll('tbody tr').forEach(tr=>{const nv=tr.querySelector('.col-nivel');if(!nv)return;const level=nv.textContent.trim();
           tr.querySelectorAll('td:not(.col-nivel)').forEach(td=>{
-            setTokens(td,vals(level,k,td.classList.contains('col-caption'),C));
+            const isCap=td.classList.contains('col-caption');
+            // Caption: día y mes completos (sin abreviar) en Futuro 2-7 días y +7 días, en todos los idiomas (las cover cards sí mantienen abreviado)
+            const fullFut=(level==='Futuro 2-7 días'||level==='Futuro +7 días');
+            setTokens(td,vals(level,k,isCap&&!fullFut,C));
+            // Grabación · Default inline (es/pt): el día tras el verbo va en minúscula (alemán mantiene mayúscula)
+            if(k!=='de'&&td.classList.contains('col-default')&&td.classList.contains('set-grab')){td.querySelectorAll('.tk-date').forEach(s=>{const t=s.textContent;if(t)s.textContent=t.charAt(0).toLowerCase()+t.slice(1);});}
             if(level==='Directo'&&td.classList.contains('col-detail')){
               let tl=td.querySelector('.dp-timeline');
               if(!tl){tl=document.createElement('div');tl.className='dp-timeline';tl.innerHTML='<span class="tl-s"></span><span class="tl-bar"><span class="tl-fill"></span></span><span class="tl-e"></span>';td.appendChild(tl);}
               tl.querySelector('.tl-s').textContent=C.liveS;tl.querySelector('.tl-e').textContent=C.liveE;tl.querySelector('.tl-fill').style.width=C.liveFill.toFixed(0)+'%';
             }});});});
       document.querySelectorAll('.cap-card').forEach(card=>{const tag=card.querySelector('.level-tag');if(!tag)return;const level=tag.textContent.trim();
-        card.querySelectorAll('.loc-text').forEach(lt=>setTokens(lt,vals(level,lk(lt.dataset.locale),true,C)));});
+        // Covers: Caption sin abreviar en los futuros 2-7d y +7d, como en la tabla (todos los idiomas)
+        const fullFut=(level==='Futuro 2-7 días'||level==='Futuro +7 días');
+        card.querySelectorAll('.loc-text').forEach(lt=>setTokens(lt,vals(level,lk(lt.dataset.locale),!fullFut,C)));});
       document.querySelectorAll('.ci-cases-tv .ci-card, .ci-cases-web .ci-card, .ci-cases-dp .ci-card, .ci-cases-gr .ci-card').forEach(card=>{
         const ctx=card.closest('.ci-cases-dp')?'dp':card.closest('.ci-cases-gr')?'gr':'di',slug=card.dataset.level;
         card.querySelectorAll('.ci-loc').forEach(lo=>{const h=buildAiring(ctx,slug,lo.dataset.locale,C);if(h!=null)lo.innerHTML=h;});});
