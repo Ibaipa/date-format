@@ -816,6 +816,30 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
     <button class="toggle-col" data-col="sg" type="button"><i class="ph ph-check"></i>Serie grupo</button>
   </div>
 
+  <!-- ═══════════ CROWDIN KEYS · experimental — para ELIMINAR la feature, borrar este bloque entero y el <script id="crowdin-js"> del final ═══════════ -->
+  <style id="crowdin-css">
+    .ck-key { display:block; margin-top:6px; font-size:10px; line-height:1.6; }
+    .ck-key code { font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:10px; background:var(--bg-soft); border:1px solid var(--border); border-radius:5px; padding:1px 6px; color:#7c5cff; white-space:nowrap; }
+    .ck-key code.ck-extra { color:var(--text-sec); }
+    @media (prefers-color-scheme: dark){ .ck-key code { color:#a78bfa; } }
+    body:not([data-crowdin="1"]) .ck-key { display:none; }
+  </style>
+  <div class="matrix-controls" id="crowdin-controls">
+    <span class="label">Crowdin</span>
+    <div class="view-mode-group" role="tablist" aria-label="Claves Crowdin">
+      <button class="view-mode ck-toggle active" data-ck="0" type="button" title="Ocultar las claves Crowdin">Off</button>
+      <button class="view-mode ck-toggle" data-ck="1" type="button" title="Mostrar bajo cada string su clave Crowdin ({Feature}.{Section}.{State}.{Token}) — la clave es la misma en los 4 locales">On</button>
+    </div>
+    <span style="width:14px"></span>
+    <span class="label">Plataforma</span>
+    <div class="view-mode-group" role="tablist" aria-label="Casing por plataforma">
+      <button class="view-mode ck-plat active" data-plat="web" type="button" title="PascalCase · separador punto">Webplayer / CORE</button>
+      <button class="view-mode ck-plat" data-plat="ios" type="button" title="camelCase · separador punto">iOS / tvOS</button>
+      <button class="view-mode ck-plat" data-plat="android" type="button" title="snake_case · separador underscore">Android</button>
+    </div>
+  </div>
+  <!-- ═══════════ /CROWDIN KEYS ═══════════ -->
+
   <!-- ES -->
   <div class="locale-panel" data-locale="es-ES">
     <div class="matriz-wrapper">
@@ -856,7 +880,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
         <tr><td class="level col-nivel">Pasado 2-7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-u7d">U7D</span></span><span class="v2-only"><span class="tk tk-u7d">U7D</span> <span class="tk tk-date">jue. 10</span></span></td>
           <td class="col-default set-est"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-detail set-est"><span class="tk tk-badge"><i class="ph ph-arrow-counter-clockwise"></i>U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
+          <td class="col-detail set-est"><span class="tk tk-u7d">U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-sg set-est"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -864,7 +888,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
         <tr><td class="level col-nivel">Pasado Ayer</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-u7d">U7D</span></span><span class="v2-only"><span class="tk tk-u7d">U7D</span> <span class="tk tk-date">ayer</span></span></td>
           <td class="col-default set-est"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-detail set-est"><span class="tk tk-badge"><i class="ph ph-arrow-counter-clockwise"></i>U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
+          <td class="col-detail set-est"><span class="tk tk-u7d">U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-sg set-est"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">ayer</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -872,7 +896,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
         <tr><td class="level col-nivel">Pasado Hoy</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-time">15:00</span></span><span class="v2-only"><span class="tk tk-u7d">U7D</span> <span class="tk tk-date">hoy</span></span></td>
           <td class="col-default set-est"><span class="v1-only"><span class="tk tk-time">15:00</span></span><span class="v2-only"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
-          <td class="col-detail set-est"><span class="v1-only"><span class="tk tk-time">15:00</span></span><span class="v2-only"><span class="tk tk-badge"><i class="ph ph-arrow-counter-clockwise"></i>U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
+          <td class="col-detail set-est"><span class="v1-only"><span class="tk tk-time">15:00</span></span><span class="v2-only"><span class="tk tk-u7d">U7D</span> <span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
           <td class="col-sg set-est"><span class="v1-only"><span class="tk tk-time">15:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span><span class="v2-only"><span class="tk tk-prefix">Emitido</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Grabado</span> <span class="tk tk-date">hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -892,7 +916,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="v1-only"><span class="tk tk-time">17:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span><span class="v2-only"><span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro Mañana</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -900,7 +924,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">22:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro 2-7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">Jue. 10</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -908,7 +932,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro +7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">10 diciembre</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">10 diciembre</span></td>
@@ -916,7 +940,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -998,7 +1022,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="v1-only"><span class="tk tk-time">17:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span><span class="v2-only"><span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Hoy</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro Mañana</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -1006,7 +1030,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">22:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Mañana</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro 2-7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">Jue. 10</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -1014,7 +1038,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">Jueves 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro +7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Próximamente</span></span><span class="v2-only"><span class="tk tk-date">10 diciembre</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">10 diciembre</span></td>
@@ -1022,7 +1046,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Próximamente</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Programado</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Programado</span> <span class="tk tk-date">10 diciembre</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -1104,7 +1128,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="v1-only"><span class="tk tk-time">17:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span><span class="v2-only"><span class="tk tk-date">Hoje</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Hoje</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Hoje</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Agendado</span> <span class="tk tk-date">Hoje</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Hoje</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro Mañana</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Em breve</span></span><span class="v2-only"><span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -1112,7 +1136,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Em breve</span> <span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">22:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Agendado</span> <span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Amanhã</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro 2-7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Em breve</span></span><span class="v2-only"><span class="tk tk-date">Qui, 10</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Quinta 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -1121,7 +1145,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
 
           <td class="col-default set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Quinta 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Quinta 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Agendado</span> <span class="tk tk-date">Quinta 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">Quinta 10</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
         <tr><td class="level col-nivel">Futuro +7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Em breve</span></span><span class="v2-only"><span class="tk tk-date">10 dezembro</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">10 dezembro</span></td>
@@ -1129,7 +1153,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Em breve</span> <span class="tk tk-date">10 dezembro</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">10 dezembro</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">10 dezembro</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Agendado</span> <span class="tk tk-date">10 dezembro</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Agendado</span> <span class="tk tk-date">10 dezembro</span><span class="tk tk-comma">:</span> <span class="tk tk-content">T2 Ep12 Primera vez…</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -1211,7 +1235,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="v1-only"><span class="tk tk-time">17:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></span><span class="v2-only"><span class="tk tk-date">Heute</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">heute</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">heute</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Geplant</span> <span class="tk tk-date">Heute</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">heute</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
         <tr><td class="level col-nivel">Futuro Mañana</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Demnächst</span></span><span class="v2-only"><span class="tk tk-date">Morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
@@ -1219,7 +1243,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Demnächst</span> <span class="tk tk-date">Morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">22:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Geplant</span> <span class="tk tk-date">Morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
         <tr><td class="level col-nivel">Futuro 2-7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Demnächst</span></span><span class="v2-only"><span class="tk tk-date">Do., 10.</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span></td>
@@ -1227,7 +1251,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Demnächst</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Geplant</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
         <tr><td class="level col-nivel">Futuro +7 días</td>
           <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Demnächst</span></span><span class="v2-only"><span class="tk tk-date">10. Dezember</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">5. Juli</span></td>
@@ -1235,7 +1259,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Demnächst</span> <span class="tk tk-date">5. Juli</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td>
           <td class="col-default set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">5. Juli</span></td>
           <td class="col-detail set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">5. Juli</span></td>
-          <td class="col-sg set-grab"><span class="tk tk-badge">Geplant</span> <span class="tk tk-date">5. Juli</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
+          <td class="col-sg set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">5. Juli</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -1826,8 +1850,8 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
             // Caption: día y mes completos (sin abreviar) en Futuro 2-7 días y +7 días, en todos los idiomas (las cover cards sí mantienen abreviado)
             const fullFut=(level==='Futuro 2-7 días'||level==='Futuro +7 días');
             setTokens(td,vals(level,k,isCap&&!fullFut,C));
-            // Grabación · Default inline y Detail Page (es/pt): el día tras el verbo va en minúscula (alemán mantiene mayúscula en días/meses)
-            if(k!=='de'&&td.classList.contains('set-grab')&&(td.classList.contains('col-default')||td.classList.contains('col-detail'))){td.querySelectorAll('.tk-date').forEach(s=>{const t=s.textContent;if(t)s.textContent=t.charAt(0).toLowerCase()+t.slice(1);});}
+            // Grabación (es/pt, todas las variantes): el día tras el verbo va en minúscula (alemán mantiene mayúscula en días/meses)
+            if(k!=='de'&&td.classList.contains('set-grab')){td.querySelectorAll('.tk-date').forEach(s=>{const t=s.textContent;if(t)s.textContent=t.charAt(0).toLowerCase()+t.slice(1);});}
             if(level==='Directo'&&td.classList.contains('col-detail')){
               let tl=td.querySelector('.dp-timeline');
               if(!tl){tl=document.createElement('div');tl.className='dp-timeline';tl.innerHTML='<span class="tl-s"></span><span class="tl-bar"><span class="tl-fill"></span></span><span class="tl-e"></span>';td.appendChild(tl);}
@@ -1847,6 +1871,71 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
     document.addEventListener('click',e=>{if(e.target.closest('.locale-tab'))setTimeout(render,0);});
   })();
 </script>
+
+<!-- ═══════════ CROWDIN KEYS · experimental (JS) — borrar junto con el bloque #crowdin-css/#crowdin-controls para eliminar la feature ═══════════ -->
+<script id="crowdin-js">
+(function(){
+  // Clave = {Feature}.{Section}.{State}.{Token} — igual en los 4 locales (solo cambia el render)
+  // Por nivel: [state emisión, state grabación, token]
+  const LV={
+    'Pasado +1 año':['Aired','Recorded','DateNumeric'],
+    'Pasado +7 días':['Aired','Recorded','DateDayMonth'],
+    'Pasado 2-7 días':['Aired','Recorded','DateWeekdayDayTime'],
+    'Pasado Ayer':['Aired','Recorded','RelativeDayTime'],
+    'Pasado Hoy':['Aired','Recorded','RelativeDayTime'],
+    'Directo':['Live','Active','TimeRange'],
+    'Futuro Hoy':['Upcoming','Scheduled','RelativeDayTime'],
+    'Futuro Mañana':['Upcoming','Scheduled','RelativeDayTime'],
+    'Futuro 2-7 días':['Upcoming','Scheduled','DateWeekdayDayTime'],
+    'Futuro +7 días':['Upcoming','Scheduled','DateDayMonth']};
+  // Sufijo Redux: solo Covers y solo donde el caption sigue abreviado (pasado; los futuros ya van sin abreviar)
+  const REDUX={'Pasado +7 días':1,'Pasado 2-7 días':1};
+  function segs(td,level){
+    const cap=td.classList.contains('col-caption'), grab=td.classList.contains('set-grab');
+    if(cap&&level==='Directo')return null; // caption Directo = [Timeline], sin string
+    const lv=LV[level]; if(!lv)return null;
+    const feature=cap?'Covers':td.classList.contains('col-default')?'ContentInfo':'DetailPage';
+    const section=grab?'Recordings':'Airing';
+    const state=grab?lv[1]:lv[0];
+    let token=lv[2];
+    if(level==='Directo'&&!td.classList.contains('col-default'))token=null; // Detail/SG en directo no muestran hora
+    if(cap&&REDUX[level])token+='Redux';
+    const out=[feature,section,state]; if(token)out.push(token);
+    return out;
+  }
+  const lowerFirst=s=>s.charAt(0).toLowerCase()+s.slice(1);
+  const snake=s=>s.replace(/([a-z0-9])([A-Z])/g,'$1_$2').toLowerCase();
+  const fmt=(arr,plat)=>plat==='ios'?arr.map(lowerFirst).join('.'):plat==='android'?arr.map(snake).join('_'):arr.join('.');
+  let plat=localStorage.getItem('airing-ck-plat')||'web';
+  let on=localStorage.getItem('airing-ck-on')==='1';
+  function inject(){
+    document.querySelectorAll('.locale-panel tbody tr').forEach(tr=>{
+      const nv=tr.querySelector('.col-nivel'); if(!nv)return;
+      const level=nv.textContent.trim();
+      tr.querySelectorAll('td:not(.col-nivel)').forEach(td=>{
+        let el=td.querySelector(':scope > .ck-key');
+        const s=segs(td,level);
+        if(!s){ if(el)el.remove(); return; }
+        if(!el){ el=document.createElement('div'); el.className='ck-key'; td.appendChild(el); }
+        let html='<code>'+fmt(s,plat)+'</code>';
+        if(td.classList.contains('col-sg'))html+=' <code class="ck-extra">'+fmt(['Content','Episode','Summary'],plat)+'</code>';
+        el.innerHTML=html;
+      });
+    });
+  }
+  function apply(){
+    document.body.dataset.crowdin=on?'1':'0';
+    document.querySelectorAll('.ck-toggle').forEach(b=>b.classList.toggle('active',(b.dataset.ck==='1')===on));
+    document.querySelectorAll('.ck-plat').forEach(b=>b.classList.toggle('active',b.dataset.plat===plat));
+    if(on)inject();
+    try{localStorage.setItem('airing-ck-on',on?'1':'0');localStorage.setItem('airing-ck-plat',plat);}catch(e){}
+  }
+  document.querySelectorAll('.ck-toggle').forEach(b=>b.addEventListener('click',()=>{on=b.dataset.ck==='1';apply();}));
+  document.querySelectorAll('.ck-plat').forEach(b=>b.addEventListener('click',()=>{plat=b.dataset.plat;apply();}));
+  apply();
+})();
+</script>
+<!-- ═══════════ /CROWDIN KEYS (JS) ═══════════ -->
 
 </body>
 </html>
