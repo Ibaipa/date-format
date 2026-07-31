@@ -1245,7 +1245,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
           <td class="col-detail set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-sg set-grab"><span class="tk tk-prefix">Geplant</span> <span class="tk tk-date">morgen</span><span class="tk tk-comma">,</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td></tr>
         <tr><td class="level col-nivel">Futuro 2-7 días</td>
-          <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Demnächst</span></span><span class="v2-only"><span class="tk tk-date">Do., 10.</span></span></td>
+          <td class="col-caption"><span class="v1-only"><span class="tk tk-prefix">Demnächst</span></span><span class="v2-only"><span class="tk tk-date">Mittwoch, 05.</span></span></td>
           <td class="col-default set-est"><span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-detail set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Demnächst</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span></td>
           <td class="col-sg set-est"><span class="tk tk-badge"><i class="ph ph-clock"></i>Demnächst</span> <span class="tk tk-date">Dienstag, 20.06.</span> <span class="tk tk-time">20:00</span><span class="tk tk-comma">:</span> <span class="tk tk-content">S2 Ep12 Erstes Mal in NYC…</span></td>
@@ -1775,6 +1775,8 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
       if(k==='de')return abbr?(WDA.de[d.getDay()]+', '+day+'.'):(capF(WD.de[d.getDay()])+', '+pad(day)+'.'+pad(d.getMonth()+1)+'.');
       if(abbr){let w=WDA[k][d.getDay()];if(cap)w=capF(w);return k==='es'?(w+' '+day):(w+', '+day);}
       let w=WD[k][d.getDay()];if(cap)w=capF(w);return w+' '+day;}
+    // DateWeekdayDay: día de semana + día SIN hora (Caption · Futuro 2-7 días). DE sin mes → "Mittwoch, 05."
+    function wdDayND(d,k){const day=d.getDate();if(k==='de')return capF(WD.de[d.getDay()])+', '+pad(day)+'.';return capF(WD[k][d.getDay()])+' '+day;}
     function model(){const now=new Date();
       const ls=roundHalf(new Date(now.getTime()-3600000)),le=roundHalf(new Date(now.getTime()+3600000));
       let fill=(now-ls)/(le-ls)*100;fill=Math.max(0,Math.min(100,fill));
@@ -1852,7 +1854,9 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
             const fullFut=(level==='Futuro 2-7 días'||level==='Futuro +7 días');
             // DE · Grabación · Default inline: formato reducido "Sa., 25." SOLO en Pasado 2-7 días (decisión O2; futuros y resto de contextos DE usan el largo)
             const abbrDE=(k==='de'&&td.classList.contains('set-grab')&&td.classList.contains('col-default')&&level==='Pasado 2-7 días');
-            setTokens(td,vals(level,k,(isCap&&!fullFut)||abbrDE,C));
+            // Caption · Futuro 2-7 días: token DateWeekdayDay (sin hora; DE sin mes → "Mittwoch, 05.")
+            if(isCap&&level==='Futuro 2-7 días')setTokens(td,{date:wdDayND(C.p5,k)});
+            else setTokens(td,vals(level,k,(isCap&&!fullFut)||abbrDE,C));
             // Grabación (es/pt, todas las variantes): el día tras el verbo va en minúscula (alemán mantiene mayúscula en días/meses)
             if(k!=='de'&&td.classList.contains('set-grab')){td.querySelectorAll('.tk-date').forEach(s=>{const t=s.textContent;if(t)s.textContent=t.charAt(0).toLowerCase()+t.slice(1);});}
             if(level==='Directo'&&td.classList.contains('col-detail')){
@@ -1861,9 +1865,11 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
               tl.querySelector('.tl-s').textContent=C.liveS;tl.querySelector('.tl-e').textContent=C.liveE;tl.querySelector('.tl-fill').style.width=C.liveFill.toFixed(0)+'%';
             }});});});
       document.querySelectorAll('.cap-card').forEach(card=>{const tag=card.querySelector('.level-tag');if(!tag)return;const level=tag.textContent.trim();
-        // Covers: Caption sin abreviar en los futuros 2-7d y +7d, en todos los idiomas
+        // Covers: Caption sin abreviar en los futuros; Futuro 2-7 días usa DateWeekdayDay (sin hora; DE sin mes)
         const fullFut=(level==='Futuro 2-7 días'||level==='Futuro +7 días');
-        card.querySelectorAll('.loc-text').forEach(lt=>setTokens(lt,vals(level,lk(lt.dataset.locale),!fullFut,C)));});
+        card.querySelectorAll('.loc-text').forEach(lt=>{const kk=lk(lt.dataset.locale);
+          if(level==='Futuro 2-7 días')setTokens(lt,{date:wdDayND(C.p5,kk)});
+          else setTokens(lt,vals(level,kk,!fullFut,C));});});
       document.querySelectorAll('.ci-cases-tv .ci-card, .ci-cases-web .ci-card, .ci-cases-dp .ci-card, .ci-cases-gr .ci-card').forEach(card=>{
         const ctx=card.closest('.ci-cases-dp')?'dp':card.closest('.ci-cases-gr')?'gr':'di',slug=card.dataset.level;
         card.querySelectorAll('.ci-loc').forEach(lo=>{const h=buildAiring(ctx,slug,lo.dataset.locale,C);if(h!=null)lo.innerHTML=h;});});
@@ -1902,6 +1908,7 @@ body[data-render="figma"] .ci-airing .tk-comma { color: var(--acol, #fff) !impor
     const state=grab?lv[1]:lv[0];
     let token=lv[2];
     if(level==='Directo'&&!td.classList.contains('col-default'))token=null; // Detail/SG en directo no muestran hora
+    if(cap&&(level==='Futuro 2-7 días'||level==='Pasado 2-7 días'))token='DateWeekdayDay'; // Caption 2-7d: sin hora (DE además sin mes); el pasado recibe Redux abajo
     if(cap&&REDUX[level])token+='Redux';
     if(de&&token&&token.indexOf('DateWeekdayDayTime')===0)token=(level==='Pasado 2-7 días'&&(cap||(grab&&td.classList.contains('col-default'))))?'DateWeekdayDayTimeRedux':'DateWeekdayDayTime'; // O2: reducido SOLO en Pasado 2-7d, Caption y Grabación·Default inline
     const out=[feature,section,state]; if(token)out.push(token);
